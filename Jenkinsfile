@@ -35,7 +35,7 @@ pipeline {
         
         stage('Pushing the image') {
             steps {
-                sh "sudo docker push artibhoir369/java-app"
+                sh "sudo docker push artibhoir369/java-app-17may23"
             }
         }
     }
