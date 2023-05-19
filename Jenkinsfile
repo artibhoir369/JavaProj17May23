@@ -21,7 +21,7 @@ pipeline {
 
         stage('Tag Image with Repository Name') {
             steps {
-                sh "sudo  docker tag java-app artibhoir369/java-app-17may23"
+                sh "sudo  docker tag java-app artibhoir369/java-app"
             }
         }
         
@@ -35,7 +35,13 @@ pipeline {
         
         stage('Pushing the image') {
             steps {
-                sh "sudo docker push artibhoir369/java-app-17may23"
+                sh "sudo docker push artibhoir369/java-app"
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                sh "ansible-playbook ansible-docker-deploy.yml"
             }
         }
     }
